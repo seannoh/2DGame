@@ -5,16 +5,16 @@ using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Serializable]
-    public class StringEvent : UnityEvent<string> { }
-    public StringEvent onInteract;
-
     private PlayerRenderer playerRenderer;
 
     private Grid grid;
     private Tilemap tilemap;
     private Tilemap tilemap_collider;
     private Tilemap tilemap_interactables;
+
+    private InteractionPanel interactionPanel;
+
+    private bool canMove = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +24,16 @@ public class PlayerMovement : MonoBehaviour
         tilemap = GameObject.Find("Tilemap - Base").GetComponent<Tilemap>();
         tilemap_collider = GameObject.Find("Tilemap - Collider").GetComponent<Tilemap>();
         tilemap_interactables = GameObject.Find("Tilemap - Interactables").GetComponent<Tilemap>();
-        
+        interactionPanel = InteractionPanel.Instance();
+        interactionPanel.interactionEvent.AddListener(OnInteractionEvent);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!canMove) {
+            return;
+        }
         Vector2Int inputVector = new Vector2Int(0,0);
         if(Input.GetKeyDown(KeyCode.W))
         {
@@ -58,13 +62,13 @@ public class PlayerMovement : MonoBehaviour
             playerRenderer.setDirection(inputVector);
             
             // check if player can move to new cell
-            TileBase newTile;
+            GameObject interactableObj;
 
-            bool hasCollider = getNewTile(newTileCell, out newTile);
+            bool hasCollider = getNewTile(newTileCell, out interactableObj);
 
             if (hasCollider == true) {
-                Debug.Log(newTile);
-                OnCollisionCheckInteraction(newTile as Tile);
+                Debug.Log(interactableObj);
+                OnCollisionCheckInteraction(interactableObj);
                 return;
             }
 
@@ -77,52 +81,67 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private bool getNewTile(Vector3Int newTileCell, out TileBase newTile) {
+    private bool getNewTile(Vector3Int newTileCell, out GameObject interactableObj) {
         Debug.Log("newTileCell: " + newTileCell);
-        if(tilemap_interactables.GetTile<Tile>(newTileCell) != null) {
+        Collider2D collider = Physics2D.OverlapPoint(tilemap_interactables.CellToWorld(newTileCell));
+        if(collider != null) {
             Debug.Log("Interactable");
-            newTile = tilemap_interactables.GetTile<Tile>(newTileCell);
+            interactableObj = collider.gameObject;
             return true;
-        } else if(tilemap_collider.GetTile(newTileCell + Vector3Int.back) != null){
+        } 
+        else if(tilemap_collider.GetTile(newTileCell + Vector3Int.back) != null){
             Debug.Log("Collider");
-            newTile = tilemap_collider.GetTile(newTileCell + Vector3Int.back);
+            interactableObj = null;
             return true;
-        } else {
-            newTile = null;
+        } 
+        else {
+            interactableObj = null;
             return false;
         }
     }
 
-    private void OnCollisionCheckInteraction(Tile newTile) {
+    private void OnCollisionCheckInteraction(GameObject interactableObj) {
 
-        if (newTile == null) {
+        if (interactableObj == null) {
             Debug.Log("No interaction");
             return;
         }
-        string message = "";
-        Debug.Log(newTile.sprite.name);
-        // TODO: move this to separate module
-        switch (newTile.sprite.name)
-        {
-            case "tile_044":
-                message = "It's a nice bush.";
-                break;
-            case "tile_046":
-                message = "It's a pretty flower.";
-                break;
-            case "tile_049": case "tile_050": case "tile_051":
-                message = "It's a log.";
-                break;
-            case "tile_053": case "tile_054": case "tile_055": case "tile_056": case "tile_057": case "tile_058": case "tile_059": case "tile_060": case "tile_068":
-                message = "It's a rock.";
-                break;
-            case "boar_SW_idle_2":
-                message = "It's a friend.";
-                break;
-            default:
-                break;
+        Debug.Log(interactableObj.gameObject.name);
+
+        Interactable interactable = interactableObj.GetComponent<Interactable>();
+        if (interactable != null) {
+            interactable.Interact();
         }
-        Debug.Log(message);
-        onInteract.Invoke(message);
+        else {
+            Debug.Log("No interaction");
+        }
+        // TODO: move this to separate module
+
+        // switch (interactableObj.gameObject.name)
+        // {
+        //     case "tile_044":
+        //         message = "It's a nice bush.";
+        //         break;
+        //     case "tile_046":
+        //         message = "It's a pretty flower.";
+        //         break;
+        //     case "tile_049": case "tile_050": case "tile_051":
+        //         message = "It's a log.";
+        //         break;
+        //     case "tile_053": case "tile_054": case "tile_055": case "tile_056": case "tile_057": case "tile_058": case "tile_059": case "tile_060": case "tile_068":
+        //         message = "It's a rock.";
+        //         break;
+        //     case "boar_SW_idle_2":
+        //         message = "It's a friend.";
+        //         break;
+        //     default:
+        //         break;
+        // }
+        // Debug.Log(message);
+        // onInteract.Invoke(message);
+    }
+
+    private void OnInteractionEvent(bool interactionEvent) {
+        this.canMove = !interactionEvent;
     }
 }

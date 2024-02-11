@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4321180727208923628}
   - component: {fileID: 1398768959978175562}
   - component: {fileID: 4788432790273443283}
+  - component: {fileID: 5597509799636718572}
   m_Layer: 0
-  m_Name: tile_flower_interactable 1
+  m_Name: tile_bush_interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5897925697588306347}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.008726535, z: 0, w: 0.9999619}
+  m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
   m_LocalPosition: {x: -1.5, y: -1.25, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
 --- !u!212 &1398768959978175562
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2ea7354002282a14981b346304d43016, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40174ca211a468d4d9c9c7a0ff63a53b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,3 +135,21 @@ PolygonCollider2D:
       - {x: 0.49762022, y: -0.2484043}
       - {x: -0.000039650127, y: -0.50016856}
   m_UseDelaunayMesh: 0
+--- !u!114 &5597509799636718572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5897925697588306347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d556f6da5dc8524183837d53a64eab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
+  interactableName: 
+  Choice1Text: 
+  Choice2Text: 
+  Choice3Text: 
+  interactionPanel: {fileID: 0}
