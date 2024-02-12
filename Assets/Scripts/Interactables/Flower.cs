@@ -38,6 +38,7 @@ public class Flower : Interactable
     {
         Debug.Log("Choice 2: Smell the flower");
         descriptionController.SendMessage("updateDescription", "You smell the flower. It smells nice.");
+        playerInfo.updateFlowersSmelled(playerInfo.flowersSmelled + 1);
     }
 
     public override void Choice3()

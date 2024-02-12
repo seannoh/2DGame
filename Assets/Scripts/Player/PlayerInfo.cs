@@ -8,6 +8,9 @@ public class PlayerInfo : ScriptableObject
     public int numFlowers;
     public int numBushes;
 
+    public int bushesSmelled;
+    public int flowersSmelled;
+
     public int getNumFlowers()
     {
         return numFlowers;
@@ -26,5 +29,15 @@ public class PlayerInfo : ScriptableObject
     public void updateNumBushes(int numBushes)
     {
         this.numBushes = numBushes;
+    }
+
+    public void updateFlowersSmelled(int flowersSmelled)
+    {
+        this.flowersSmelled = flowersSmelled;
+    }
+
+    public void updateBushesSmelled(int bushesSmelled)
+    {
+        this.bushesSmelled = bushesSmelled;
     }
 }

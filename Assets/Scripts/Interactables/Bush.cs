@@ -37,7 +37,8 @@ public class Bush : Interactable
     public override void Choice2()
     {
         Debug.Log("Choice 2: Smell the bush");
-        descriptionController.SendMessage("updateDescription", "You smell the bush. It smells earthy.");
+        descriptionController.SendMessage("updateDescription", "You smell the bush. It smells stinky.");
+        playerInfo.updateBushesSmelled(playerInfo.bushesSmelled + 1);
     }
 
     public override void Choice3()
