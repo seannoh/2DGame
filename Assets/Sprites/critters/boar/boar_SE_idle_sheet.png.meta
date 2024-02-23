@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: boar_SE_idle_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217d7fa08762bc340ab90845cba60dfb
+      internalID: 1884165374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_SE_idle_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 50
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b3a58b179e568248b2e0ea484c82447
+      internalID: -1988021577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_SE_idle_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 50
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7659ca8d30929fc44a7eb7f1251da27b
+      internalID: -517728610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_SE_idle_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d3159ef322e7a4aa78f4eff40c538c
+      internalID: 110639079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_SE_idle_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 25
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c904757c51d0e1c4cb56aa229566bcdf
+      internalID: -2118043108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_SE_idle_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 25
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f2e5178c7e6114eaee1aff1ae24922
+      internalID: 1623379919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_SE_idle_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25840d7761b07cc4f81107aba7cae2b3
+      internalID: -820502691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +279,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boar_SE_idle_sheet_0: 1884165374
+      boar_SE_idle_sheet_1: -1988021577
+      boar_SE_idle_sheet_2: -517728610
+      boar_SE_idle_sheet_3: 110639079
+      boar_SE_idle_sheet_4: -2118043108
+      boar_SE_idle_sheet_5: 1623379919
+      boar_SE_idle_sheet_6: -820502691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

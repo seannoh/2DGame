@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,8 +7,6 @@ public class Boar : Interactable
     private DescriptionController descriptionController;
     private PlayerInfo playerInfo;
     private int friendScore = 0;
-
-    private int smellScore = 0;
 
     private void Start()
     {
@@ -18,8 +17,7 @@ public class Boar : Interactable
     public override void Interact()
     {
         playerInfo = FindObjectOfType<PlayerInstance>().playerInfo;
-        smellScore = playerInfo.flowersSmelled - playerInfo.bushesSmelled;
-        if(smellScore <= 0)
+        if(playerInfo.getSmellScore() <= 0)
         {
             descriptionController.SendMessage("updateDescription", "The other pig doesn't like the way you smell. You need to smell better to be friends.");
             return;
@@ -102,11 +100,11 @@ public class Boar : Interactable
     {
         description = "You have made a friend! You win!";
         Choice1Text = "Play again";
-        Choice1Action += () => {SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);};
+        Choice1Action += () => {SceneManager.LoadScene("StartScene");};
         Choice2Text = "Quit";
         Choice2Action += () => {Application.Quit();};
-        Choice3Text = "";
-        Choice3Action += () => {};
+        Choice3Text = null;
+        Choice3Action = null;
         base.Interact();
     }
 }

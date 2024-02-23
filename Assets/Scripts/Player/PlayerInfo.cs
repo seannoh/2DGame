@@ -40,4 +40,8 @@ public class PlayerInfo : ScriptableObject
     {
         this.bushesSmelled = bushesSmelled;
     }
+
+    public int getSmellScore() {
+        return flowersSmelled - bushesSmelled;
+    }
 }
